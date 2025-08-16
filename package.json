@@ -1,0 +1,17 @@
+{
+  "name": "paste_context",
+  "version": "1.0.0",
+  "main": "background.js",
+  "scripts": {
+    "prebuild": "rd /s /q .\\dist",
+    "build": "tsc && copy src\\manifest.json dist\\manifest.json && copy src\\options.html dist\\options.html && copy src\\icon.png dist\\icon.png"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/chrome": "^0.1.4",
+    "typescript": "^5.9.2"
+  }
+}
