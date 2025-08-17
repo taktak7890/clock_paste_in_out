@@ -6,7 +6,8 @@
     "permissions": [
         "contextMenus",
         "scripting",
-        "storage"
+        "storage",
+        "activeTab"
     ],
     "background": {
         "service_worker": "background.js"
@@ -15,12 +16,12 @@
         "<all_urls>"
     ],
     "action": {
+        "default_popup": "options.html",
         "default_title": "Paste Context Menu"
     },
     "icons": {
         "16": "icon.png",
         "48": "icon.png",
         "128": "icon.png"
-    },
-    "options_page": "options.html"
+    }
 }
