@@ -1,0 +1,30 @@
+name: Create Release and Upload ZIP
+
+on:
+  push:
+    tags:
+      - 'v*' # 例: v1.0.0, v2.1.3 などのタグがプッシュされた時にトリガー
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    # 【重要】Releaseの作成とアセットのアップロードには書き込み権限が必要です
+    permissions:
+      contents: write 
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 1. 必要なファイルをZIPに圧縮する
+      - name: Create ZIP archive
+        # 例として 'src' フォルダと 'README.md' を 'my-app-release.zip' という名前に圧縮します
+        run: zip -r my-app-release.zip src/ README.md
+
+      # 2. Releaseを作成し、ZIPファイルをアップロードする
+      - name: Release and Upload Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: my-app-release.zip # 先ほど作成したZIPファイルを指定
+          generate_release_notes: true # (オプション) 自動でリリースノートを生成する
