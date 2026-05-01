@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "background.js",
   "scripts": {
-    "prebuild": "rd /s /q .\\dist",
+    "prebuild": "if exist .\\dist rd /s /q .\\dist",
     "build": "tsc && copy src\\manifest.json dist\\manifest.json && copy src\\options.html dist\\options.html && copy src\\icon.png dist\\icon.png"
   },
   "keywords": [],
