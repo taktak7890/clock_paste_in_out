@@ -1,6 +1,6 @@
 {
   "name": "paste_context",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "background.js",
   "scripts": {
     "prebuild": "if exist .\\dist rd /s /q .\\dist",
